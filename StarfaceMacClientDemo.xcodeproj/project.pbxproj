@@ -1,0 +1,580 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		9028171F2FE196CD000F18D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 902817062FE196CA000F18D1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9028170D2FE196CA000F18D1;
+			remoteInfo = StarfaceMacClientDemo;
+		};
+		902817292FE196CD000F18D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 902817062FE196CA000F18D1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9028170D2FE196CA000F18D1;
+			remoteInfo = StarfaceMacClientDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9028170E2FE196CA000F18D1 /* StarfaceMacClientDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarfaceMacClientDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9028171E2FE196CD000F18D1 /* StarfaceMacClientDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarfaceMacClientDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		902817282FE196CD000F18D1 /* StarfaceMacClientDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarfaceMacClientDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		902817102FE196CA000F18D1 /* StarfaceMacClientDemo */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = StarfaceMacClientDemo;
+			sourceTree = "<group>";
+		};
+		902817212FE196CD000F18D1 /* StarfaceMacClientDemoTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = StarfaceMacClientDemoTests;
+			sourceTree = "<group>";
+		};
+		9028172B2FE196CD000F18D1 /* StarfaceMacClientDemoUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = StarfaceMacClientDemoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9028170B2FE196CA000F18D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9028171B2FE196CD000F18D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		902817252FE196CD000F18D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		902817052FE196CA000F18D1 = {
+			isa = PBXGroup;
+			children = (
+				902817102FE196CA000F18D1 /* StarfaceMacClientDemo */,
+				902817212FE196CD000F18D1 /* StarfaceMacClientDemoTests */,
+				9028172B2FE196CD000F18D1 /* StarfaceMacClientDemoUITests */,
+				9028170F2FE196CA000F18D1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9028170F2FE196CA000F18D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9028170E2FE196CA000F18D1 /* StarfaceMacClientDemo.app */,
+				9028171E2FE196CD000F18D1 /* StarfaceMacClientDemoTests.xctest */,
+				902817282FE196CD000F18D1 /* StarfaceMacClientDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9028170D2FE196CA000F18D1 /* StarfaceMacClientDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 902817322FE196CD000F18D1 /* Build configuration list for PBXNativeTarget "StarfaceMacClientDemo" */;
+			buildPhases = (
+				9028170A2FE196CA000F18D1 /* Sources */,
+				9028170B2FE196CA000F18D1 /* Frameworks */,
+				9028170C2FE196CA000F18D1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				902817102FE196CA000F18D1 /* StarfaceMacClientDemo */,
+			);
+			name = StarfaceMacClientDemo;
+			packageProductDependencies = (
+			);
+			productName = StarfaceMacClientDemo;
+			productReference = 9028170E2FE196CA000F18D1 /* StarfaceMacClientDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9028171D2FE196CD000F18D1 /* StarfaceMacClientDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 902817352FE196CD000F18D1 /* Build configuration list for PBXNativeTarget "StarfaceMacClientDemoTests" */;
+			buildPhases = (
+				9028171A2FE196CD000F18D1 /* Sources */,
+				9028171B2FE196CD000F18D1 /* Frameworks */,
+				9028171C2FE196CD000F18D1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				902817202FE196CD000F18D1 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				902817212FE196CD000F18D1 /* StarfaceMacClientDemoTests */,
+			);
+			name = StarfaceMacClientDemoTests;
+			packageProductDependencies = (
+			);
+			productName = StarfaceMacClientDemoTests;
+			productReference = 9028171E2FE196CD000F18D1 /* StarfaceMacClientDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		902817272FE196CD000F18D1 /* StarfaceMacClientDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 902817382FE196CD000F18D1 /* Build configuration list for PBXNativeTarget "StarfaceMacClientDemoUITests" */;
+			buildPhases = (
+				902817242FE196CD000F18D1 /* Sources */,
+				902817252FE196CD000F18D1 /* Frameworks */,
+				902817262FE196CD000F18D1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9028172A2FE196CD000F18D1 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				9028172B2FE196CD000F18D1 /* StarfaceMacClientDemoUITests */,
+			);
+			name = StarfaceMacClientDemoUITests;
+			packageProductDependencies = (
+			);
+			productName = StarfaceMacClientDemoUITests;
+			productReference = 902817282FE196CD000F18D1 /* StarfaceMacClientDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		902817062FE196CA000F18D1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2640;
+				LastUpgradeCheck = 2640;
+				TargetAttributes = {
+					9028170D2FE196CA000F18D1 = {
+						CreatedOnToolsVersion = 26.4;
+					};
+					9028171D2FE196CD000F18D1 = {
+						CreatedOnToolsVersion = 26.4;
+						TestTargetID = 9028170D2FE196CA000F18D1;
+					};
+					902817272FE196CD000F18D1 = {
+						CreatedOnToolsVersion = 26.4;
+						TestTargetID = 9028170D2FE196CA000F18D1;
+					};
+				};
+			};
+			buildConfigurationList = 902817092FE196CA000F18D1 /* Build configuration list for PBXProject "StarfaceMacClientDemo" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 902817052FE196CA000F18D1;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 9028170F2FE196CA000F18D1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9028170D2FE196CA000F18D1 /* StarfaceMacClientDemo */,
+				9028171D2FE196CD000F18D1 /* StarfaceMacClientDemoTests */,
+				902817272FE196CD000F18D1 /* StarfaceMacClientDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9028170C2FE196CA000F18D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9028171C2FE196CD000F18D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		902817262FE196CD000F18D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9028170A2FE196CA000F18D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9028171A2FE196CD000F18D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		902817242FE196CD000F18D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		902817202FE196CD000F18D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9028170D2FE196CA000F18D1 /* StarfaceMacClientDemo */;
+			targetProxy = 9028171F2FE196CD000F18D1 /* PBXContainerItemProxy */;
+		};
+		9028172A2FE196CD000F18D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9028170D2FE196CA000F18D1 /* StarfaceMacClientDemo */;
+			targetProxy = 902817292FE196CD000F18D1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		902817302FE196CD000F18D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = JND9XWCEGQ;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		902817312FE196CD000F18D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = JND9XWCEGQ;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		902817332FE196CD000F18D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JND9XWCEGQ;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.junfengtech.StarfaceMacClientDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		902817342FE196CD000F18D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JND9XWCEGQ;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.junfengtech.StarfaceMacClientDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		902817362FE196CD000F18D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JND9XWCEGQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.junfengtech.StarfaceMacClientDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StarfaceMacClientDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StarfaceMacClientDemo";
+			};
+			name = Debug;
+		};
+		902817372FE196CD000F18D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JND9XWCEGQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.junfengtech.StarfaceMacClientDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StarfaceMacClientDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StarfaceMacClientDemo";
+			};
+			name = Release;
+		};
+		902817392FE196CD000F18D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JND9XWCEGQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.junfengtech.StarfaceMacClientDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = StarfaceMacClientDemo;
+			};
+			name = Debug;
+		};
+		9028173A2FE196CD000F18D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JND9XWCEGQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.junfengtech.StarfaceMacClientDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = StarfaceMacClientDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		902817092FE196CA000F18D1 /* Build configuration list for PBXProject "StarfaceMacClientDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				902817302FE196CD000F18D1 /* Debug */,
+				902817312FE196CD000F18D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		902817322FE196CD000F18D1 /* Build configuration list for PBXNativeTarget "StarfaceMacClientDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				902817332FE196CD000F18D1 /* Debug */,
+				902817342FE196CD000F18D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		902817352FE196CD000F18D1 /* Build configuration list for PBXNativeTarget "StarfaceMacClientDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				902817362FE196CD000F18D1 /* Debug */,
+				902817372FE196CD000F18D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		902817382FE196CD000F18D1 /* Build configuration list for PBXNativeTarget "StarfaceMacClientDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				902817392FE196CD000F18D1 /* Debug */,
+				9028173A2FE196CD000F18D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 902817062FE196CA000F18D1 /* Project object */;
+}
