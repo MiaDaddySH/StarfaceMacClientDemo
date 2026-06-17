@@ -26,6 +26,8 @@ AppKit is still used for macOS-specific behavior:
 
 This split keeps the app modern while still showing practical macOS platform knowledge.
 
+The app uses STARFACE Orange `#F59C00` as the primary accent color, with STARFACE Blue `#081B30` and STARFACE Gray `#878787` available as supporting brand colors.
+
 ## State And Business Logic
 
 Call behavior is modeled with a dedicated state machine:

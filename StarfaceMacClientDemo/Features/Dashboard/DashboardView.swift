@@ -36,6 +36,7 @@ struct DashboardView: View {
                 .frame(minWidth: 500)
         }
         .frame(minWidth: 800, minHeight: 520)
+        .tint(StarfaceColors.orange)
         .onAppear {
             callPanelViewModel.onCallCompleted = { record in
                 callHistoryViewModel.insertCompletedCall(record)

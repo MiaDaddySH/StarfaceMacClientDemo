@@ -43,5 +43,6 @@ struct PreferencesView: View {
         .formStyle(.grouped)
         .padding(20)
         .frame(width: 520, height: 420)
+        .tint(StarfaceColors.orange)
     }
 }

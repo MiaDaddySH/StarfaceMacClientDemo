@@ -137,12 +137,12 @@ private struct ContactRowView: View {
         .padding(.vertical, 9)
         .background(
             RoundedRectangle(cornerRadius: 6)
-                .fill(isSelected ? Color.accentColor.opacity(0.16) : .clear)
+                .fill(isSelected ? StarfaceColors.orange.opacity(0.16) : .clear)
         )
         .overlay(
             RoundedRectangle(cornerRadius: 6)
                 .stroke(
-                    isSelected ? Color.accentColor.opacity(0.35) : .clear,
+                    isSelected ? StarfaceColors.orange.opacity(0.35) : .clear,
                     lineWidth: 1
                 )
         )
@@ -155,8 +155,8 @@ private struct ContactRowView: View {
                 .fill(
                     LinearGradient(
                         colors: [
-                            Color.accentColor.opacity(0.78),
-                            Color(nsColor: .systemTeal).opacity(0.82)
+                            StarfaceColors.orange,
+                            StarfaceColors.blue.opacity(0.92)
                         ],
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing

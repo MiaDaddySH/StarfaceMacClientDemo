@@ -29,6 +29,7 @@ This demo is not a production VoIP client. It is a focused interview project tha
 - AsyncStream-based event updates
 - UserNotifications integration
 - UserDefaults persistence
+- STARFACE brand accent color `#F59C00`
 - MVVM-style feature structure
 - Protocol-based dependency injection
 - Swift Testing
