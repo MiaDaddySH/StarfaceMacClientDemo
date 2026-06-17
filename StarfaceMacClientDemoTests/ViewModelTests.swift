@@ -121,6 +121,63 @@ struct CallHistoryViewModelTests {
 }
 
 @MainActor
+struct CallPanelViewModelTests {
+
+    @Test
+    func simulateIncomingCallPublishesRingingState() {
+        let contact = makeContact(name: "Anna Keller", presenceStatus: .available)
+        let viewModel = CallPanelViewModel(
+            stateMachine: CallStateMachine(),
+            notificationService: NotificationServiceMock()
+        )
+
+        viewModel.select(contact: contact)
+        viewModel.simulateIncomingCall()
+
+        #expect(viewModel.currentState == .ringing(contact: contact))
+    }
+
+    @Test
+    func answerIncomingCallMovesToConnectingState() {
+        let contact = makeContact(name: "Anna Keller", presenceStatus: .available)
+        let viewModel = CallPanelViewModel(
+            stateMachine: CallStateMachine(),
+            notificationService: NotificationServiceMock()
+        )
+
+        viewModel.select(contact: contact)
+        viewModel.simulateIncomingCall()
+        viewModel.answerIncomingCall()
+
+        #expect(viewModel.currentState == .connecting(contact: contact))
+    }
+
+    @Test
+    func rejectIncomingCallAddsMissedCallRecord() {
+        let contact = makeContact(name: "Anna Keller", presenceStatus: .available)
+        let viewModel = CallPanelViewModel(
+            stateMachine: CallStateMachine(),
+            notificationService: NotificationServiceMock()
+        )
+        var capturedRecord: CallRecord?
+
+        viewModel.onCallCompleted = { record in
+            capturedRecord = record
+        }
+
+        viewModel.select(contact: contact)
+        viewModel.simulateIncomingCall()
+        viewModel.rejectIncomingCall()
+
+        #expect(viewModel.currentState == .ended(reason: .missed))
+        #expect(capturedRecord?.contactName == contact.name)
+        #expect(capturedRecord?.phoneNumber == contact.phoneNumber)
+        #expect(capturedRecord?.direction == .missed)
+        #expect(capturedRecord?.duration == nil)
+    }
+}
+
+@MainActor
 struct PreferencesViewModelTests {
 
     @Test
@@ -188,6 +245,15 @@ private struct CallHistoryServiceMock: CallHistoryServicing {
     func fetchCallHistory() async throws -> [CallRecord] {
         try result.get()
     }
+}
+
+private struct NotificationServiceMock: NotificationServicing {
+
+    func requestAuthorization() async -> Bool {
+        true
+    }
+
+    func showIncomingCallNotification(from contact: Contact) async {}
 }
 
 private enum TestError: Error {

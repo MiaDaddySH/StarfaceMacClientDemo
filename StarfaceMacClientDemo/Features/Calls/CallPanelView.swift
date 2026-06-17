@@ -63,28 +63,53 @@ struct CallPanelView: View {
     }
 
     private var actionButtons: some View {
-        HStack(spacing: 12) {
-            Button {
-                viewModel.startDemoCallFlow()
-            } label: {
-                Label("Call", systemImage: "phone.fill")
-            }
-            .keyboardShortcut(.return, modifiers: [])
-            .disabled(!viewModel.canStartCall)
+        VStack(spacing: 12) {
+            HStack(spacing: 12) {
+                Button {
+                    viewModel.startDemoCallFlow()
+                } label: {
+                    Label("Call", systemImage: "phone.fill")
+                }
+                .keyboardShortcut(.return, modifiers: [])
+                .disabled(!viewModel.canStartCall)
 
-            Button {
-                viewModel.endCall()
-            } label: {
-                Label("Hang Up", systemImage: "phone.down.fill")
+                Button {
+                    viewModel.simulateIncomingCall()
+                } label: {
+                    Label("Simulate Incoming", systemImage: "phone.arrow.down.left.fill")
+                }
+                .disabled(!viewModel.canSimulateIncomingCall)
             }
-            .disabled(!viewModel.canEndCall)
 
-            Button {
-                viewModel.resetCall()
-            } label: {
-                Label("Reset", systemImage: "arrow.counterclockwise")
+            HStack(spacing: 12) {
+                Button {
+                    viewModel.answerIncomingCall()
+                } label: {
+                    Label("Answer", systemImage: "phone.connection.fill")
+                }
+                .disabled(!viewModel.canAnswerIncomingCall)
+
+                Button {
+                    viewModel.rejectIncomingCall()
+                } label: {
+                    Label("Reject", systemImage: "phone.down.circle.fill")
+                }
+                .disabled(!viewModel.canAnswerIncomingCall)
+
+                Button {
+                    viewModel.endCall()
+                } label: {
+                    Label("Hang Up", systemImage: "phone.down.fill")
+                }
+                .disabled(!viewModel.canEndCall)
+
+                Button {
+                    viewModel.resetCall()
+                } label: {
+                    Label("Reset", systemImage: "arrow.counterclockwise")
+                }
+                .disabled(!viewModel.currentState.isEnded)
             }
-            .disabled(!viewModel.currentState.isEnded)
         }
         .controlSize(.large)
     }

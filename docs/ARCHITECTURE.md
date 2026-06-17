@@ -22,6 +22,7 @@ AppKit is still used for macOS-specific behavior:
 - `AppDelegate` owns `NSWindow` lifecycle
 - `StatusBarController` owns `NSStatusItem` and `NSMenu`
 - settings are shown in a separate AppKit-managed `NSWindow`
+- `AppDelegate` acts as the foreground notification delegate for local notifications
 
 This split keeps the app modern while still showing practical macOS platform knowledge.
 
@@ -69,10 +70,13 @@ Services are protocol-based:
 - `ContactServicing`
 - `CallHistoryServicing`
 - `PresenceServicing`
+- `NotificationServicing`
 
 Current implementations use mock data and short async delays to simulate backend behavior. This allows the UI and view models to use `async/await` without requiring a real server.
 
 `PresenceService` uses `AsyncStream` to simulate server-pushed contact presence changes. `ContactsViewModel` subscribes to the stream, applies matching updates by phone number, and cancels the stream when the dashboard disappears.
+
+`NotificationService` wraps `UNUserNotificationCenter` so incoming-call notification behavior stays outside SwiftUI views and view models can depend on a protocol in tests.
 
 Later, the mock services could be replaced by:
 
@@ -101,6 +105,16 @@ CallPanelView
 -> DashboardView callback
 -> CallHistoryViewModel
 -> CallHistoryView
+```
+
+Incoming call notification flow:
+
+```text
+CallPanelView
+-> CallPanelViewModel.simulateIncomingCall()
+-> CallStateMachine.receiveIncomingCall()
+-> NotificationServicing
+-> UNUserNotificationCenter
 ```
 
 Menu bar status flow:
@@ -133,6 +147,7 @@ The test suite focuses on behavior that should remain stable during refactoring:
 - end and reset behavior
 - async view model loading with mock services
 - applying presence updates to matching contacts
+- incoming call state handling with a mocked notification service
 - call history insertion order
 - preference persistence and reset behavior
 
@@ -142,7 +157,7 @@ This is intentionally more valuable than snapshot-style UI tests for the current
 
 Potential next steps:
 
-- add real notification handling with `UNUserNotificationCenter`
+- add notification actions for answer and reject
 - extract shared domain code into a Swift package
 - replace the mock presence stream with a WebSocket event stream
 - add integration tests around service adapters

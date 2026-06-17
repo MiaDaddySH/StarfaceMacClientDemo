@@ -13,6 +13,7 @@ This demo is not a production VoIP client. It is a focused interview project tha
 - Preferences are persisted with `UserDefaults`
 - Contact search across name, department, phone number, and presence state
 - Simulated backend presence updates with `AsyncStream`
+- Simulated incoming calls with local macOS notifications
 - Simulated call states: idle, ringing, dialing, connecting, active, held, ended
 - Completed demo calls are inserted into call history
 - Protocol-based async mock services for contacts and call history
@@ -26,6 +27,7 @@ This demo is not a production VoIP client. It is a focused interview project tha
 - Combine
 - Swift Concurrency
 - AsyncStream-based event updates
+- UserNotifications integration
 - UserDefaults persistence
 - MVVM-style feature structure
 - Protocol-based dependency injection
@@ -67,6 +69,7 @@ The project includes Swift Testing coverage for:
 - async contact loading through a mock service
 - async call history loading through a mock service
 - applying simulated presence updates to matching contacts
+- simulated incoming call, answer, and missed-call behavior
 - inserting completed calls into call history
 - saving and restoring preferences
 

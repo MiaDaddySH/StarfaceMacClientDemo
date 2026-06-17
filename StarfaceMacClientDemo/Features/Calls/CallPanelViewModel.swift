@@ -14,7 +14,9 @@ final class CallPanelViewModel: ObservableObject {
     var onCallCompleted: ((CallRecord) -> Void)?
 
     private let stateMachine: CallStateMachine
+    private let notificationService: NotificationServicing
     private var callProgressTask: Task<Void, Never>?
+    private var currentCallDirection: CallDirection?
 
     @Published private(set) var selectedContact: Contact?
     @Published private(set) var currentState: CallState = .idle
@@ -22,11 +24,22 @@ final class CallPanelViewModel: ObservableObject {
 
     init() {
         self.stateMachine = CallStateMachine()
+        self.notificationService = NotificationService()
         currentState = stateMachine.state
     }
 
     init(stateMachine: CallStateMachine) {
         self.stateMachine = stateMachine
+        self.notificationService = NotificationService()
+        currentState = stateMachine.state
+    }
+
+    init(
+        stateMachine: CallStateMachine,
+        notificationService: NotificationServicing
+    ) {
+        self.stateMachine = stateMachine
+        self.notificationService = notificationService
         currentState = stateMachine.state
     }
 
@@ -44,6 +57,7 @@ final class CallPanelViewModel: ObservableObject {
         }
 
         try stateMachine.startOutgoingCall(to: selectedContact)
+        currentCallDirection = .outgoing
         syncState()
     }
 
@@ -76,6 +90,56 @@ final class CallPanelViewModel: ObservableObject {
         }
     }
 
+    func simulateIncomingCall() {
+        guard let selectedContact else {
+            lastErrorMessage = "Select a contact before simulating an incoming call."
+            return
+        }
+
+        callProgressTask?.cancel()
+        lastErrorMessage = nil
+
+        do {
+            try stateMachine.receiveIncomingCall(from: selectedContact)
+            currentCallDirection = .incoming
+            syncState()
+
+            Task {
+                await notificationService.showIncomingCallNotification(from: selectedContact)
+            }
+        } catch {
+            lastErrorMessage = "Unable to receive incoming call."
+        }
+    }
+
+    func answerIncomingCall() {
+        callProgressTask?.cancel()
+        lastErrorMessage = nil
+
+        do {
+            try markConnecting()
+
+            callProgressTask = Task { @MainActor [weak self] in
+                try? await Task.sleep(nanoseconds: 800_000_000)
+
+                guard let self, !Task.isCancelled else {
+                    return
+                }
+
+                try? self.markActive()
+            }
+        } catch {
+            lastErrorMessage = "Unable to answer incoming call."
+        }
+    }
+
+    func rejectIncomingCall() {
+        callProgressTask?.cancel()
+        onCallCompleted?(makeMissedCallRecord())
+        stateMachine.end(reason: .missed)
+        syncState()
+    }
+
     func markConnecting() throws {
         try stateMachine.markConnecting()
         syncState()
@@ -100,6 +164,7 @@ final class CallPanelViewModel: ObservableObject {
     func resetCall() {
         callProgressTask?.cancel()
         stateMachine.reset()
+        currentCallDirection = nil
         syncState()
     }
 
@@ -117,11 +182,25 @@ final class CallPanelViewModel: ObservableObject {
 
     var canEndCall: Bool {
         switch currentState {
-        case .dialing, .connecting, .active, .held, .ringing:
+        case .dialing, .connecting, .active, .held:
             return true
         case .idle, .ended:
             return false
+        case .ringing:
+            return false
         }
+    }
+
+    var canSimulateIncomingCall: Bool {
+        canStartCall
+    }
+
+    var canAnswerIncomingCall: Bool {
+        if case .ringing = currentState {
+            return true
+        }
+
+        return false
     }
 
     private func syncState() {
@@ -136,9 +215,21 @@ final class CallPanelViewModel: ObservableObject {
         return CallRecord(
             contactName: selectedContact.name,
             phoneNumber: selectedContact.phoneNumber,
-            direction: .outgoing,
+            direction: currentCallDirection ?? .outgoing,
             timestamp: Date(),
             duration: currentCallDuration
+        )
+    }
+
+    private func makeMissedCallRecord() -> CallRecord {
+        let contact = currentContact ?? selectedContact
+
+        return CallRecord(
+            contactName: contact?.name ?? "Unknown Caller",
+            phoneNumber: contact?.phoneNumber ?? "Unknown",
+            direction: .missed,
+            timestamp: Date(),
+            duration: nil
         )
     }
 
@@ -148,6 +239,19 @@ final class CallPanelViewModel: ObservableObject {
         }
 
         return Date().timeIntervalSince(startedAt)
+    }
+
+    private var currentContact: Contact? {
+        switch currentState {
+        case .idle, .ended:
+            return nil
+        case .ringing(let contact),
+                .dialing(let contact),
+                .connecting(let contact),
+                .active(let contact, _),
+                .held(let contact):
+            return contact
+        }
     }
 }
 
