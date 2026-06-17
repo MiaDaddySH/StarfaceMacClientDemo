@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+
+# Xcode user state
+xcuserdata/
+*.xcuserstate
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+# Build products
+DerivedData/
+build/
+.build/
+
+# Swift Package Manager local state
+.swiftpm/
+
+# Code coverage / profiling output
+*.profraw
+*.profdata
+
+# Playgrounds
+timeline.xctimeline
+playground.xcworkspace
