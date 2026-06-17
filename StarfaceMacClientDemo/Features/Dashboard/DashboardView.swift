@@ -42,6 +42,10 @@ struct DashboardView: View {
             }
 
             contactsViewModel.loadContacts()
+            contactsViewModel.startPresenceUpdates()
+        }
+        .onDisappear {
+            contactsViewModel.stopPresenceUpdates()
         }
         .onChange(of: callPanelViewModel.currentState) { _, newState in
             clientStatusStore.update(from: newState)

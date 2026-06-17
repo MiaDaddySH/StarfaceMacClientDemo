@@ -41,6 +41,34 @@ struct ContactsViewModelTests {
         #expect(viewModel.isLoading == false)
         #expect(viewModel.lastErrorMessage == "Unable to load contacts.")
     }
+
+    @Test
+    func applyPresenceUpdateChangesMatchingContactOnly() async {
+        let anna = makeContact(
+            name: "Anna Keller",
+            phoneNumber: "+49 721 1001",
+            presenceStatus: .available
+        )
+        let markus = makeContact(
+            name: "Markus Weber",
+            phoneNumber: "+49 721 1002",
+            presenceStatus: .busy
+        )
+        let viewModel = ContactsViewModel(
+            contactService: ContactServiceMock(result: .success([anna, markus]))
+        )
+
+        await viewModel.refreshContacts()
+        viewModel.applyPresenceUpdate(
+            ContactPresenceUpdate(
+                phoneNumber: "+49 721 1001",
+                presenceStatus: .offline
+            )
+        )
+
+        #expect(viewModel.contacts[0].presenceStatus == .offline)
+        #expect(viewModel.contacts[1].presenceStatus == .busy)
+    }
 }
 
 @MainActor
@@ -176,12 +204,13 @@ private func makeUserDefaultsSuite() -> (String, UserDefaults) {
 
 private func makeContact(
     name: String,
+    phoneNumber: String = "+49 721 1001",
     presenceStatus: PresenceStatus
 ) -> Contact {
     Contact(
         name: name,
         department: "Sales",
-        phoneNumber: "+49 721 1001",
+        phoneNumber: phoneNumber,
         presenceStatus: presenceStatus
     )
 }

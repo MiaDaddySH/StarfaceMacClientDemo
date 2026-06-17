@@ -59,9 +59,19 @@ struct ContactsSidebarView: View {
 
     private var header: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("Contacts")
-                .font(.title3)
-                .fontWeight(.semibold)
+            HStack {
+                Text("Contacts")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+
+                Spacer()
+
+                if viewModel.isReceivingPresenceUpdates {
+                    Label("Live presence", systemImage: "dot.radiowaves.left.and.right")
+                        .font(.caption2)
+                        .foregroundStyle(.green)
+                }
+            }
 
             TextField("Search contacts", text: $viewModel.searchText)
                 .textFieldStyle(.roundedBorder)

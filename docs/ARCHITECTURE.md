@@ -68,8 +68,11 @@ Services are protocol-based:
 
 - `ContactServicing`
 - `CallHistoryServicing`
+- `PresenceServicing`
 
 Current implementations use mock data and short async delays to simulate backend behavior. This allows the UI and view models to use `async/await` without requiring a real server.
+
+`PresenceService` uses `AsyncStream` to simulate server-pushed contact presence changes. `ContactsViewModel` subscribes to the stream, applies matching updates by phone number, and cancels the stream when the dashboard disappears.
 
 Later, the mock services could be replaced by:
 
@@ -111,6 +114,15 @@ CallPanelViewModel.currentState
 -> NSStatusItem menu/title
 ```
 
+Presence update flow:
+
+```text
+PresenceService AsyncStream
+-> ContactsViewModel.startPresenceUpdates()
+-> ContactsViewModel.applyPresenceUpdate()
+-> ContactsSidebarView
+```
+
 ## Testing
 
 The test suite focuses on behavior that should remain stable during refactoring:
@@ -120,6 +132,7 @@ The test suite focuses on behavior that should remain stable during refactoring:
 - hold and resume behavior
 - end and reset behavior
 - async view model loading with mock services
+- applying presence updates to matching contacts
 - call history insertion order
 - preference persistence and reset behavior
 
@@ -131,6 +144,6 @@ Potential next steps:
 
 - add real notification handling with `UNUserNotificationCenter`
 - extract shared domain code into a Swift package
-- add a mock WebSocket event stream for presence changes
+- replace the mock presence stream with a WebSocket event stream
 - add integration tests around service adapters
 - remove unused AppKit prototype view controllers after the SwiftUI migration is complete

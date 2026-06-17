@@ -27,6 +27,16 @@ struct Contact: Identifiable, Equatable {
         self.phoneNumber = phoneNumber
         self.presenceStatus = presenceStatus
     }
+
+    func updating(presenceStatus: PresenceStatus) -> Contact {
+        Contact(
+            id: id,
+            name: name,
+            department: department,
+            phoneNumber: phoneNumber,
+            presenceStatus: presenceStatus
+        )
+    }
 }
 
 enum PresenceStatus: String, Equatable {

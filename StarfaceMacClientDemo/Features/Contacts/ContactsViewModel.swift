@@ -12,18 +12,35 @@ import Foundation
 final class ContactsViewModel: ObservableObject {
 
     private let contactService: ContactServicing
+    private let presenceService: PresenceServicing
+    private var presenceUpdatesTask: Task<Void, Never>?
 
     @Published private(set) var contacts: [Contact] = []
     @Published var searchText = ""
     @Published private(set) var isLoading = false
+    @Published private(set) var isReceivingPresenceUpdates = false
     @Published private(set) var lastErrorMessage: String?
 
     init() {
         self.contactService = ContactService()
+        self.presenceService = PresenceService()
     }
 
     init(contactService: ContactServicing) {
         self.contactService = contactService
+        self.presenceService = PresenceService()
+    }
+
+    init(
+        contactService: ContactServicing,
+        presenceService: PresenceServicing
+    ) {
+        self.contactService = contactService
+        self.presenceService = presenceService
+    }
+
+    deinit {
+        presenceUpdatesTask?.cancel()
     }
 
     func loadContacts() {
@@ -43,6 +60,40 @@ final class ContactsViewModel: ObservableObject {
         }
 
         isLoading = false
+    }
+
+    func startPresenceUpdates() {
+        guard presenceUpdatesTask == nil else {
+            return
+        }
+
+        isReceivingPresenceUpdates = true
+
+        presenceUpdatesTask = Task { [weak self] in
+            guard let self else {
+                return
+            }
+
+            for await update in presenceService.presenceUpdates() {
+                applyPresenceUpdate(update)
+            }
+        }
+    }
+
+    func stopPresenceUpdates() {
+        presenceUpdatesTask?.cancel()
+        presenceUpdatesTask = nil
+        isReceivingPresenceUpdates = false
+    }
+
+    func applyPresenceUpdate(_ update: ContactPresenceUpdate) {
+        contacts = contacts.map { contact in
+            guard contact.phoneNumber == update.phoneNumber else {
+                return contact
+            }
+
+            return contact.updating(presenceStatus: update.presenceStatus)
+        }
     }
 
     func contact(at index: Int) -> Contact? {
