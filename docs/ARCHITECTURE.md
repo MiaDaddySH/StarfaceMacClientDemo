@@ -90,6 +90,12 @@ Later, the mock services could be replaced by:
 - SIP/VoIP signaling adapters
 - shared Swift packages used by both iOS and macOS clients
 
+## Demo Boundaries
+
+The project deliberately separates demo behavior from platform behavior. Contact data, call history, presence changes, and SIP-like call events are simulated so the project can be reviewed without a backend. macOS integration is real: the app creates AppKit windows, installs a main menu, exposes a menu bar item, persists settings with `UserDefaults`, and uses `UNUserNotificationCenter` for local incoming-call notifications.
+
+This boundary keeps the prototype honest: it does not pretend to be a production VoIP client, but it shows where production networking, SIP signaling, and shared iOS/macOS code could be connected.
+
 ## Data Flow
 
 Typical contact loading flow:
