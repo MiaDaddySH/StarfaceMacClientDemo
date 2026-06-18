@@ -20,6 +20,7 @@ AppKit is still used for macOS-specific behavior:
 
 - `main.swift` creates and runs `NSApplication`
 - `AppDelegate` owns `NSWindow` lifecycle
+- `MainMenuController` owns the application, demo, and window menus
 - `StatusBarController` owns `NSStatusItem` and `NSMenu`
 - settings are shown in a separate AppKit-managed `NSWindow`
 - `AppDelegate` acts as the foreground notification delegate for local notifications
@@ -28,7 +29,7 @@ This split keeps the app modern while still showing practical macOS platform kno
 
 The app uses STARFACE Orange `#F59C00` as the primary accent color, with STARFACE Blue `#081B30` and STARFACE Gray `#878787` available as supporting brand colors.
 
-Earlier AppKit prototype view controllers were removed after the SwiftUI dashboard became the primary UI. AppKit remains intentionally scoped to application lifecycle, windows, menu bar integration, and notification presentation.
+Earlier AppKit prototype view controllers were removed after the SwiftUI dashboard became the primary UI. AppKit remains intentionally scoped to application lifecycle, windows, menu commands, menu bar integration, and notification presentation.
 
 ## State And Business Logic
 

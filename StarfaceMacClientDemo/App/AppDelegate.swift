@@ -16,11 +16,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     private var mainWindow: NSWindow?
     private var preferencesWindow: NSWindow?
+    private var mainMenuController: MainMenuController?
     private var statusBarController: StatusBarController?
     private var cancellables = Set<AnyCancellable>()
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         UNUserNotificationCenter.current().delegate = self
+        setupMainMenuController()
         setupStatusBarController()
         showMainWindow()
     }
@@ -80,6 +82,22 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             .store(in: &cancellables)
 
         self.statusBarController = statusBarController
+    }
+
+    private func setupMainMenuController() {
+        let mainMenuController = MainMenuController()
+
+        mainMenuController.onShowWindowRequested = { [weak self] in
+            self?.showMainWindow()
+        }
+
+        mainMenuController.onPreferencesRequested = { [weak self] in
+            self?.showPreferencesWindow()
+        }
+
+        mainMenuController.install()
+
+        self.mainMenuController = mainMenuController
     }
 
     private func showPreferencesWindow() {

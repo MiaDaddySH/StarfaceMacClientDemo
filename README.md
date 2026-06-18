@@ -8,6 +8,7 @@ This demo is not a production VoIP client. It is a focused interview project tha
 
 - SwiftUI dashboard with contacts, call controls, and call history
 - AppKit application bootstrap and explicit `NSWindow` lifecycle
+- AppKit main menu commands for window and settings actions
 - AppKit menu bar integration with `NSStatusItem`
 - Settings window hosted in a separate AppKit-managed window
 - Preferences are persisted with `UserDefaults`
