@@ -28,6 +28,8 @@ This split keeps the app modern while still showing practical macOS platform kno
 
 The app uses STARFACE Orange `#F59C00` as the primary accent color, with STARFACE Blue `#081B30` and STARFACE Gray `#878787` available as supporting brand colors.
 
+Earlier AppKit prototype view controllers were removed after the SwiftUI dashboard became the primary UI. AppKit remains intentionally scoped to application lifecycle, windows, menu bar integration, and notification presentation.
+
 ## State And Business Logic
 
 Call behavior is modeled with a dedicated state machine:
@@ -163,4 +165,3 @@ Potential next steps:
 - extract shared domain code into a Swift package
 - replace the mock presence stream with a WebSocket event stream
 - add integration tests around service adapters
-- remove unused AppKit prototype view controllers after the SwiftUI migration is complete
